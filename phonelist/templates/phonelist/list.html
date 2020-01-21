@@ -1,0 +1,78 @@
+<div class="container"><h3>{{ listtype }}</h3></div>
+
+<div class="container">
+    <table class="table">
+        <tr>
+            {% if listtype != "Waiting" %}
+                <th>Car</th>
+            {% endif %}
+
+            <th>Name</th>
+            <th>Phone</th>
+            <th>#</th>
+            <th>Pick-up</th>
+            <th>Drop-off</th>
+            <th>Comments</th>
+            <th>Time</th>
+        </tr>
+        {% for ride in rides %}
+            <tr>
+                {% if listtype != "Waiting" %}
+                    <td>{{ ride.car }}</td>
+                {% endif %}
+
+                <td>{{ ride.name }}</td>
+                <td>{{ ride.phone }}</td>
+                <td>{{ ride.num_patrons }}</td>
+                <td>{{ ride.pickup }}</td>
+                <td>{{ ride.dropoff }}</td>
+
+                {% if ride.comments == "" %}
+                    <td>N/A</td>
+                {% else %}
+                    <td><button type="button" class="btn btn-link">View</button></td>
+                {% endif %}
+
+                <td>{{ now|timesince:ride.time }}</td>
+                <td><button type="button" class="btn btn-light">Edit</button></td>
+
+                {% if listtype == "Waiting" %}
+                    <td><button type="button" class="btn btn-warning">Assign</button></td>
+                    <td><button type="button" class="btn btn-warning">Split</button></td>
+                {% endif %}
+
+                {% if listtype == "Riding" %}
+                    <td><button type="button" class="btn btn-success">Done</button></td>
+                {% endif %}
+
+                {% if listtype == "Riding" or listtype == "Done" or listtype == "Cancelled" %}
+                    <td><button type="button" class="btn btn-warning">Undo</button></td>
+                {% endif %}
+
+                {% if listtype == "Waiting" or listtype == "Riding" %}
+                    <td><button type="button" class="btn btn-danger">Cancel</button></td>
+                {% endif %}
+
+                {% if listtype == "Done" or listtype == "Cancelled" %}
+                    <td><button type="button" class="btn btn-danger">Delete</button></td>
+                {% endif %}
+
+                {% if listtype == "Deleted" %}
+                    <td><button type="button" class="btn btn-success">Recover</button></td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+        <tr>
+            <th>Total</th>
+            <th></th>
+
+            {% if listtype != "Waiting" %}
+                <th></th>
+            {% endif %}
+
+            <td>#</td>
+        </tr>
+    </table>
+</div>
+
+<div class="mt-4"></div>

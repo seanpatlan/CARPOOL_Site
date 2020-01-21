@@ -1,0 +1,25 @@
+{% extends "phonelist/base.html" %}
+{% block content %}
+    <div class="container"><h1>Phone List</h1></div>
+    <div class="mt-5"></div>
+
+    {% if all or waiting %}
+        {% include "phonelist/list.html" with rides=waiting_list listtype="Waiting" now=now %}
+    {% endif %}
+
+    {% if all or riding %}
+        {% include "phonelist/list.html" with rides=riding_list listtype="Riding" now=now %}
+    {% endif %}
+
+    {% if all or done %}
+        {% include "phonelist/list.html" with rides=done_list listtype="Done" now=now %}
+    {% endif %}
+
+    {% if all or cancelled %}
+        {% include "phonelist/list.html" with rides=cancelled_list listtype="Cancelled" now=now %}
+    {% endif %}
+
+    {% if all or deleted %}
+        {% include "phonelist/list.html" with rides=deleted_list listtype="Deleted" now=now %}
+    {% endif %}
+{% endblock content %}

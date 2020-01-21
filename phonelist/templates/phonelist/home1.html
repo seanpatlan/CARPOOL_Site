@@ -1,0 +1,165 @@
+{% extends "phonelist/base.html" %}
+{% block content %}
+    <div class="container"><h2>Waiting</h2></div>
+
+    <div class="container">
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>#</th>
+            <th>Pick-up</th>
+            <th>Drop-off</th>
+            <th>Comments</th>
+            <th>Time</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        {% for ride in waiting %}
+            <tr>
+                <td>{{ ride.name }}</td>
+                <td>{{ ride.phone }}</td>
+                <td>{{ ride.numberofpatrons }}</td>
+                <td>{{ ride.pickup }}</td>
+                <td>{{ ride.dropoff }}</td>
+                <td>{{ ride.comments }}</td>
+                <td>{{ ride.waittime }}</td>
+                <td><button type="button" class="btn btn-light">Edit</button></td>
+                <td><button type="button" class="btn btn-light">Assign</button></td>
+                <td><button type="button" class="btn btn-danger">Cancel</button></td>
+            </tr>
+        {% endfor %}
+        <tr>
+            <th>Total</th>
+            <td></td>
+            <td>#</td>
+        </tr>
+    </table>
+    </div>
+
+    <div class="mt-4"></div>
+    <div class="container"><h2>Riding</h2></div>
+
+    <div class="container">
+    <table class="table">
+        <tr>
+            <th>Car</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>#</th>
+            <th>Pick-up</th>
+            <th>Drop-off</th>
+            <th>Comments</th>
+            <th>Time</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        {% for ride in riding %}
+            <tr>
+                <td>{{ ride.car }}</td>
+                <td>{{ ride.name }}</td>
+                <td>{{ ride.phone }}</td>
+                <td>{{ ride.numberofpatrons }}</td>
+                <td>{{ ride.pickup }}</td>
+                <td>{{ ride.dropoff }}</td>
+                <td>{{ ride.comments }}</td>
+                <td>{{ ride.waittime }}</td>
+                <td><button type="button" class="btn btn-light">Edit</button></td>
+                <td><button type="button" class="btn btn-light">Undo</button></td>
+                <td><button type="button" class="btn btn-danger">Cancel</button></td>
+            </tr>
+        {% endfor %}
+        <tr>
+            <th>Total</th>
+            <td></td>
+            <td></td>
+            <td>#</td>
+        </tr>
+    </table>
+    </div>
+
+    <div class="mt-4"></div>
+    <div class="container"><h2>Done</h2></div>
+
+    <div class="container">
+    <table class="table">
+        <tr>
+            <th>Car</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>#</th>
+            <th>Pick-up</th>
+            <th>Drop-off</th>
+            <th>Comments</th>
+            <th>Time</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        {% for ride in done %}
+            <tr>
+                <td>{{ ride.car }}</td>
+                <td>{{ ride.name }}</td>
+                <td>{{ ride.phone }}</td>
+                <td>{{ ride.numberofpatrons }}</td>
+                <td>{{ ride.pickup }}</td>
+                <td>{{ ride.dropoff }}</td>
+                <td>{{ ride.comments }}</td>
+                <td>{{ ride.waittime }}</td>
+                <td><button type="button" class="btn btn-light">Edit</button></td>
+                <td><button type="button" class="btn btn-light">Undo</button></td>
+                <td><button type="button" class="btn btn-danger">Delete</button></td>
+            </tr>
+        {% endfor %}
+        <tr>
+            <th>Total</th>
+            <td></td>
+            <td></td>
+            <td>#</td>
+        </tr>
+    </table>
+    </div>
+
+    <div class="mt-4"></div>
+    <div class="container"><h2>Deleted</h2></div>
+
+    <div class="container">
+    <table class="table">
+        <tr>
+            <th>Car</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>#</th>
+            <th>Pick-up</th>
+            <th>Drop-off</th>
+            <th>Comments</th>
+            <th>Time</th>
+            <th></th>
+            <th></th>
+        </tr>
+        {% for ride in deleted %}
+            <tr>
+                <td>{{ ride.car }}</td>
+                <td>{{ ride.name }}</td>
+                <td>{{ ride.phone }}</td>
+                <td>{{ ride.numberofpatrons }}</td>
+                <td>{{ ride.pickup }}</td>
+                <td>{{ ride.dropoff }}</td>
+                <td>{{ ride.comments }}</td>
+                <td>{{ ride.waittime }}</td>
+                <td><button type="button" class="btn btn-light">Edit</button></td>
+                <td><button type="button" class="btn btn-light">Recover</button></td>
+            </tr>
+        {% endfor %}
+        <tr>
+            <th>Total</th>
+            <td></td>
+            <td></td>
+            <td>#</td>
+        </tr>
+    </table>
+    </div>
+
+{% endblock content %}
